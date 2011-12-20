@@ -13,7 +13,7 @@ component extends="plugins.widget.inc.resource.base.widget" {
 		}
 		
 		addScript(variables.transport.theRequest.webRoot & 'plugins/chart/script/flot/jquery.flot-min.js');
-		addScript('(function($){ $(function() { $.plot($(''##' & arguments.args.id & '''), ' & arguments.content & ', ' & serializeJson(arguments.args.options) & ') }); }(jQuery));');
+		addScript('require([ 'jquery' ], function(jQuery) {(function($){ $(function() { $.plot($(''##' & arguments.args.id & '''), ' & arguments.content & ', ' & serializeJson(arguments.args.options) & ') }); }(jQuery));});');
 		
 		return '<div id="' & arguments.args.id & '" class="' & arguments.args.class & '"></div>';
 	}
